@@ -10,13 +10,12 @@ import org.lionsoul.jcseg.core.IChunk;
  * @author chenxin<chenxin619315@gmail.com>
  */
 
-public class MMSegFilter 
-{
-	/**
-	 *	1. the maximum match rule
-	 * 	this rule will return the chunks that own the largest word length.
-	 */
-	public static IChunk[] getMaximumMatchChunks(IChunk[] chunks) 
+public class MMSegFilter {
+    /**
+     * 1. the maximum match rule this rule will return the chunks that own the
+     * largest word length.
+     */
+    public static IChunk[] getMaximumMatchChunks(IChunk[] chunks) 
 	{
 		int maxLength = chunks[0].getLength();
 		int j;
@@ -42,13 +41,12 @@ public class MMSegFilter
 		
 		return lchunk;
 	}
-	
-	
-	/**
-	 * 2. largest average word length
-	 * this rule will return the chunks that own the largest average word length.
-	 */
-	public static IChunk[] getLargestAverageWordLengthChunks(IChunk[] chunks) 
+
+    /**
+     * 2. largest average word length this rule will return the chunks that own
+     * the largest average word length.
+     */
+    public static IChunk[] getLargestAverageWordLengthChunks(IChunk[] chunks) 
 	{
 		double largetAverage = chunks[0].getAverageWordsLength();
 		int j;
@@ -75,12 +73,12 @@ public class MMSegFilter
 		
 		return lchunk;
 	}
-	
-	/**
-	 * the smallest variance word length.
-	 * this rule will the chunks that one the smallest variance word length.
-	 */
-	public static IChunk[] getSmallestVarianceWordLengthChunks(IChunk[] chunks) 
+
+    /**
+     * the smallest variance word length. this rule will the chunks that one the
+     * smallest variance word length.
+     */
+    public static IChunk[] getSmallestVarianceWordLengthChunks(IChunk[] chunks) 
 	{
 		double smallestVariance = chunks[0].getWordsVariance();
 		int j;
@@ -107,14 +105,13 @@ public class MMSegFilter
 		
 		return lchunk;
 	}
-	
-	
-	/**
-	 * the largest sum of degree of morphemic freedom of one-character words
-	 * 	this rule will return the chunks that own the largest sum of degree of morphemic freedom 
-	 * 	of one-character.
-	 */
-	public static IChunk[] getLargestSingleMorphemicFreedomChunks(IChunk[] chunks) 
+
+    /**
+     * the largest sum of degree of morphemic freedom of one-character words
+     * this rule will return the chunks that own the largest sum of degree of
+     * morphemic freedom of one-character.
+     */
+    public static IChunk[] getLargestSingleMorphemicFreedomChunks(IChunk[] chunks) 
 	{
 		double largestFreedom = chunks[0].getSingleWordsMorphemicFreedom();
 		int j;

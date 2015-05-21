@@ -15,10 +15,9 @@ import org.lionsoul.jcseg.core.IWord;
 import org.lionsoul.jcseg.util.IStringBuffer;
 import org.lionsoul.jcseg.util.Sort;
 
-
 /**
- * Jcseg dictionary merge class.
- * 	all the duplicate entries will be removed, sorted them by natural order.
+ * Jcseg dictionary merge class. all the duplicate entries will be removed,
+ * sorted them by natural order.
  * 
  * demo: 人事部/nt/ren shi bu/人事管理部門,人事管理部 . <br />
  * 
@@ -31,23 +30,24 @@ import org.lionsoul.jcseg.util.Sort;
  * @author chenxin <chenxin619315@gmail.com>
  */
 public class DicMerge {
-	
-	private static boolean inArray( String[] arr, String item ) {
-		for ( int j = 0; j < arr.length; j++ )
-			if ( arr[j].equals(item) ) return true;
-		return false;
-	}
-	
-	/**
-	 * merge two jcseg dictionary files,
-	 * 	remove the duplicate entries and store the entris in a specified file. <br />
-	 * 
-	 * @param	srcFiles
-	 * @param	dstfile
-	 * @return	int
-	 * @throws 	IOException
-	 */
-	public static int merge( 
+
+    private static boolean inArray(String[] arr, String item) {
+        for (int j = 0; j < arr.length; j++)
+            if (arr[j].equals(item))
+                return true;
+        return false;
+    }
+
+    /**
+     * merge two jcseg dictionary files, remove the duplicate entries and store
+     * the entris in a specified file. <br />
+     * 
+     * @param srcFiles
+     * @param dstfile
+     * @return int
+     * @throws IOException
+     */
+    public static int merge( 
 			 File[] srcFiles, File dstFile ) throws IOException 
 	{
 		//merge the source dictionary.
@@ -217,7 +217,7 @@ public class DicMerge {
 		return keys.length;
 	}
 
-	public static void main(String[] args) 
+    public static void main(String[] args) 
 	{
 		//usage
 		if ( args.length < 2 ) {
@@ -300,5 +300,4 @@ public class DicMerge {
 		}
 		
 	}
-
 }

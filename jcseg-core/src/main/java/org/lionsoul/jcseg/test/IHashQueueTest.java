@@ -10,13 +10,12 @@ import org.lionsoul.jcseg.util.IHashQueue;
  * @author chenxin<chenxin619315@gmail.com>
  */
 
-public class IHashQueueTest 
-{
+public class IHashQueueTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) 
+    /**
+     * @param args
+     */
+    public static void main(String[] args) 
 	{
 		IWord[] ws = {
 				new Word("你好", IWord.T_CJK_WORD),
@@ -59,5 +58,4 @@ public class IHashQueueTest
 		
 		System.out.println("Done");
 	}
-
 }
