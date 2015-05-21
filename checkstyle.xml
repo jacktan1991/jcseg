@@ -23,24 +23,15 @@ limitations under the License.
 <!-- commons lang customization of default Checkstyle behavior -->
 <module name="Checker">
   <property name="localeLanguage" value="en"/>
-  <module name="JavadocPackage">
-    <!-- setting allowLegacy means it will check for package.html instead of just package-info.java -->
-    <property name="allowLegacy" value="true"/>
-  </module>
   <module name="FileTabCharacter">
     <property name="fileExtensions" value="java,xml"/>
+    <property name="eachLine" value="true"/>
   </module>
   <module name="TreeWalker">
     <property name="cacheFile" value="target/cachefile"/>
+    <property name="tabWidth" value="4"/>
     <module name="AvoidStarImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
-    <module name="NeedBraces"/>
-    <module name="RedundantThrows">
-      <property name="allowUnchecked" value="true"/>
-    </module>
-    <module name="JavadocMethod">
-      <property name="allowUndeclaredRTE" value="true"/>
-    </module>
  </module>
 </module>
