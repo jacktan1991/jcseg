@@ -53,6 +53,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jcseg.version>1.9.5</jcseg.version>
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
+    <java-formatter.config.file>formatter-profile.xml</java-formatter.config.file>
   </properties>
 
   <dependencies>
@@ -82,6 +83,22 @@
 		  <encoding>UTF-8</encoding>
 		</configuration>
 	  </plugin>
+    <plugin>
+    <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+    <artifactId>maven-java-formatter-plugin</artifactId>
+    <version>0.4</version>
+    <configuration>
+      <encoding>UTF-8</encoding>
+      <lineEnding>CRLF</lineEnding>
+    </configuration>
+    <executions>
+      <execution>
+        <goals>
+          <goal>format</goal>
+        </goals>
+      </execution>
+    </executions>
+    </plugin>
 	</plugins>
   </build>
   
