@@ -24,47 +24,47 @@ import java.io.Reader;
  */
 public class JcsegTokenizerFactory extends AbstractTokenizerFactory {
 
-	private String seg_mode;
-	private JcsegTaskConfig config;
-	private ADictionary dic;
+    private String seg_mode;
+    private JcsegTaskConfig config;
+    private ADictionary dic;
 
-	@Inject
-	public JcsegTokenizerFactory(Index index,
-			@IndexSettings Settings indexSettings, Environment env,
-			@Assisted String name, @Assisted Settings settings) {
-		super(index, indexSettings, name, settings);
+    @Inject
+    public JcsegTokenizerFactory(Index index,
+            @IndexSettings Settings indexSettings, Environment env,
+            @Assisted String name, @Assisted Settings settings) {
+        super(index, indexSettings, name, settings);
 
-		File proFile = new File(env.configFile() + "/jcseg/jcseg.properties");
-		seg_mode = settings.get("seg_mode", "complex");
+        File proFile = new File(env.configFile() + "/jcseg/jcseg.properties");
+        seg_mode = settings.get("seg_mode", "complex");
 
-		if (proFile.exists())
-			config = new JcsegTaskConfig(proFile.getPath());
-		else
-			config = new JcsegTaskConfig();
+        if (proFile.exists())
+            config = new JcsegTaskConfig(proFile.getPath());
+        else
+            config = new JcsegTaskConfig();
 
-		dic = DictionaryFactory.createDefaultDictionary(config);
-	}
+        dic = DictionaryFactory.createDefaultDictionary(config);
+    }
 
-	@Override
-	public Tokenizer create(Reader reader) {
-		int mode = JcsegTaskConfig.COMPLEX_MODE;
-		if (seg_mode.equals("complex"))
-			mode = JcsegTaskConfig.COMPLEX_MODE;
-		else if (seg_mode.equals("simple"))
-			mode = JcsegTaskConfig.SIMPLE_MODE;
-		else if (seg_mode.equals("detect"))
-			mode = JcsegTaskConfig.DETECT_MODE;
+    @Override
+    public Tokenizer create(Reader reader) {
+        int mode = JcsegTaskConfig.COMPLEX_MODE;
+        if (seg_mode.equals("complex"))
+            mode = JcsegTaskConfig.COMPLEX_MODE;
+        else if (seg_mode.equals("simple"))
+            mode = JcsegTaskConfig.SIMPLE_MODE;
+        else if (seg_mode.equals("detect"))
+            mode = JcsegTaskConfig.DETECT_MODE;
 
-		try {
-			return new JcsegTokenizer(reader, mode, config, dic);
-		} catch (JcsegException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            return new JcsegTokenizer(reader, mode, config, dic);
+        } catch (JcsegException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-		return null;
-	}
+        return null;
+    }
 }

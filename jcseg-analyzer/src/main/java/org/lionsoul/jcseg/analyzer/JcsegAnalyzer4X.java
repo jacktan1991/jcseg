@@ -15,51 +15,51 @@ import org.lionsoul.jcseg.core.JcsegTaskConfig;
  */
 public class JcsegAnalyzer4X extends Analyzer {
 
-	private int mode;
-	private JcsegTaskConfig config = null;
-	private ADictionary dic = null;
+    private int mode;
+    private JcsegTaskConfig config = null;
+    private ADictionary dic = null;
 
-	public JcsegAnalyzer4X(int mode) {
-		this.mode = mode;
+    public JcsegAnalyzer4X(int mode) {
+        this.mode = mode;
 
-		// initialize the task config and the dictionary
-		config = new JcsegTaskConfig();
-		dic = DictionaryFactory.createDefaultDictionary(config);
-	}
+        // initialize the task config and the dictionary
+        config = new JcsegTaskConfig();
+        dic = DictionaryFactory.createDefaultDictionary(config);
+    }
 
-	public JcsegAnalyzer4X(int mode, String proFile) {
-		this.mode = mode;
+    public JcsegAnalyzer4X(int mode, String proFile) {
+        this.mode = mode;
 
-		config = new JcsegTaskConfig(proFile);
-		dic = DictionaryFactory.createDefaultDictionary(config);
-	}
+        config = new JcsegTaskConfig(proFile);
+        dic = DictionaryFactory.createDefaultDictionary(config);
+    }
 
-	public void setConfig(JcsegTaskConfig config) {
-		this.config = config;
-	}
+    public void setConfig(JcsegTaskConfig config) {
+        this.config = config;
+    }
 
-	public void setDict(ADictionary dic) {
-		this.dic = dic;
-	}
+    public void setDict(ADictionary dic) {
+        this.dic = dic;
+    }
 
-	public JcsegTaskConfig getTaskConfig() {
-		return config;
-	}
+    public JcsegTaskConfig getTaskConfig() {
+        return config;
+    }
 
-	public ADictionary getDict() {
-		return dic;
-	}
+    public ADictionary getDict() {
+        return dic;
+    }
 
-	@Override
-	protected TokenStreamComponents createComponents(String fieldName,
-			Reader reader) {
-		try {
-			Tokenizer source = new JcsegTokenizer(reader, mode, config, dic);
-			return new TokenStreamComponents(source, new JcsegFilter(source));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    @Override
+    protected TokenStreamComponents createComponents(String fieldName,
+            Reader reader) {
+        try {
+            Tokenizer source = new JcsegTokenizer(reader, mode, config, dic);
+            return new TokenStreamComponents(source, new JcsegFilter(source));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		return null;
-	}
+        return null;
+    }
 }

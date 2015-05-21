@@ -8,7 +8,7 @@ package org.lionsoul.jcseg.analyzer;
 /**
  * jcseg analyzer for lucene.
  * 
- * @author	chenxin<chenxin619315@gmail.com>
+ * @author  chenxin<chenxin619315@gmail.com>
  */
 /*public class JcsegAnalyzer3X extends Analyzer {
 
