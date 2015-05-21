@@ -53,7 +53,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jcseg.version>1.9.5</jcseg.version>
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
-    <java-formatter.config.file>formatter-profile.xml</java-formatter.config.file>
   </properties>
 
   <dependencies>
@@ -88,6 +87,7 @@
     <artifactId>maven-java-formatter-plugin</artifactId>
     <version>0.4</version>
     <configuration>
+      <configFile>${basedir}/../formatter-profile.xml</configFile>
       <encoding>UTF-8</encoding>
       <lineEnding>CRLF</lineEnding>
     </configuration>
