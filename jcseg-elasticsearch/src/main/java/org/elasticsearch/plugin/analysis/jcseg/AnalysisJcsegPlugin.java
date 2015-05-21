@@ -12,20 +12,21 @@ import org.elasticsearch.plugins.AbstractPlugin;
  */
 public class AnalysisJcsegPlugin extends AbstractPlugin {
 
-    @Override public String name() {
-        return "analysis-jcseg";
-    }
+	@Override
+	public String name() {
+		return "analysis-jcseg";
+	}
 
+	@Override
+	public String description() {
+		return "jcseg analysis";
+	}
 
-    @Override public String description() {
-        return "jcseg analysis";
-    }
-
-
-    @Override public void processModule(Module module) {
-        if (module instanceof AnalysisModule) {
-            AnalysisModule analysisModule = (AnalysisModule) module;
-            analysisModule.addProcessor(new JcsegAnalysisBinderProcessor());
-        }
-    }
+	@Override
+	public void processModule(Module module) {
+		if (module instanceof AnalysisModule) {
+			AnalysisModule analysisModule = (AnalysisModule) module;
+			analysisModule.addProcessor(new JcsegAnalysisBinderProcessor());
+		}
+	}
 }

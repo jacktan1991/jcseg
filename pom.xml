@@ -87,7 +87,7 @@
     <artifactId>maven-java-formatter-plugin</artifactId>
     <version>0.4</version>
     <configuration>
-      <configFile>${basedir}/../formatter-profile.xml</configFile>
+      <configFile>../formatter-profile.xml</configFile>
       <encoding>UTF-8</encoding>
       <lineEnding>CRLF</lineEnding>
     </configuration>
