@@ -10,15 +10,15 @@ machine:
   timezone:
     Asia/Shanghai
   java:
+    ## jdk version is a string here, not allow multi-jdk
     version:
       oraclejdk8
-      # - openjdk6
-      # - openjdk7
       
 ## Checking out code
 ## skip
 
 ## Setting up dependencies
+## default is - mvn dependency:resolve
 dependencies:
   pre:
     - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -27,6 +27,7 @@ dependencies:
 ## skip
 
 ## Running tests
+## default is - mvn integration-test
 test:
   override:
     - mvn test checkstyle:check -B
