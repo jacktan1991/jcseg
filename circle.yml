@@ -33,4 +33,4 @@ test:
     - mvn test checkstyle:check -B
   post:
     - mvn clean checkstyle:checkstyle
-    - ls -al
+    - cp -R ./jcseg-core/target $CIRCLE_ARTIFACTS
