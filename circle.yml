@@ -20,7 +20,8 @@ machine:
 
 ## Setting up dependencies
 dependencies:
-  pre: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  pre:
+    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   
 ## Setting up test databases
 ## skip
