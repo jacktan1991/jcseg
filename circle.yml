@@ -1,0 +1,33 @@
+general:
+  branches:
+    ignore:
+      - master
+
+#### any section has pre: override: post: ####
+
+## Configuring the test machine
+machine:
+  timezone:
+    Asia/Shanghai
+  java:
+    version:
+      oraclejdk8
+      # - openjdk6
+      # - openjdk7
+      
+## Checking out code
+## skip
+
+## Setting up dependencies
+#dependencies:
+  # pre: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  
+## Setting up test databases
+## skip
+
+## Running tests
+test:
+  override: 
+    - mvn test checkstyle:check -B
+  post:
+    - mvn clean checkstyle:checkstyle
