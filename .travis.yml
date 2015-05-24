@@ -5,6 +5,10 @@ jdk:
   - openjdk7
   - oraclejdk8
 
+branches:
+  only:
+    - master
+    
 script:
   - mvn test checkstyle:check
 
