@@ -33,4 +33,4 @@ test:
     - mvn test checkstyle:check -B
   post:
     - mvn clean checkstyle:checkstyle
-    - cp -R ./XXXXXXXX/target $CIRCLE_ARTIFACTS
+    - cp -R ./target $CIRCLE_ARTIFACTS
