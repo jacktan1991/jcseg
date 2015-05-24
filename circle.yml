@@ -32,5 +32,5 @@ test:
   override:
     - mvn test checkstyle:check -B
   post:
-    - mvn clean checkstyle:checkstyle
+    - mvn clean site
     - cp -R ./jcseg-core/target $CIRCLE_ARTIFACTS
